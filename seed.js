@@ -1,4 +1,4 @@
-const { db, Campus, Student } = require('./server/db/index')
+const { db, User, Movie, Personnel } = require('./server/db/index')
 
 const users = [
 	{
@@ -48,21 +48,23 @@ const personnel = [
 
 const seed = async () => {
   try {
-    await db.sync({force: true})
+    await db.sync({force: true});
 
-    await Promise.all(users.map(campus => {
-      return Campus.create(campus);
+    await Promise.all(users.map(user => {
+      return User.create(user);
     }));
-
-    await Promise.all(students.map(student => {
-      return Student.create(student);
+    await Promise.all(movies.map(movie => {
+      return Movie.create(movie);
+    }));
+    await Promise.all(personnel.map(person => {
+      return Personnel.create(person);
     }));
 
     console.log('Seeding success!')
     db.close()
   }
   catch (err) {
-    console.error('Oh noes! Something went wrong!')
+    console.error('You might need a bigger boat -- something went wrong!')
     console.error(err)
     db.close()
   }
