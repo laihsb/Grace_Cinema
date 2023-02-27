@@ -2,11 +2,11 @@ const { db, User, Movie, Personnel } = require('./server/db/index')
 
 const users = [
 	{
-		email: ,
-		password: ,
-		fName: ,
-		lName: ,
-		type:
+		email: 'craig@craig.craig',
+		password: 'stealth_craig',
+		fName: 'Craig',
+		lName: 'McCraig',
+		type: 'Admin'
 	},
 ];
 
@@ -98,7 +98,6 @@ const movies = [
 		genre: 'Fantasy',
 		year: '2022',
 		description: "Epic drama set thousands of years before the events of J.R.R. Tolkien's 'The Hobbit' and 'The Lord of the Rings' follows an ensemble cast of characters, both familiar and new, as they confront the long-feared re-emergence of evil to Middle-earth.",
-		imageUrl: '',
 		price: '$27.99',
 		inventory: '10'
 	},

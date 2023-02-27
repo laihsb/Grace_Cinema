@@ -1,8 +1,8 @@
 const db = require('./_db');
-const User = require('./user');
-const Order = require('./order');
-const Movie = require('./movie');
-const Personnel = require('./personnel')
+const User = require('./User');
+const Order = require('./models/Order');
+const Movie = require('./Movie');
+const Personnel = require('./Personnel')
 
 // User.hasMany(Order);
 // Order.belongsTo(User);

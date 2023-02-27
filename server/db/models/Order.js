@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('./_db');
+const db = require('../_db');
 
 const Order = db.define('movie', {
     quantities: {
