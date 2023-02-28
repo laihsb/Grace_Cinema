@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('./_db');
+const db = require('../_db');
 
 const Personnel = db.define('personnel', {
 	fName: {
@@ -16,7 +16,6 @@ const Personnel = db.define('personnel', {
 	},
 	imageUrl: {
 		type: Sequelize.STRING,
-		allowNull: false,
 		validate:{
 			isUrl: true
 		}
