@@ -25,13 +25,15 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "PORT=8080 react-scripts start",
+    "start": "react-scripts start",
+		"start:dev": "npm run server & npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "nodemon --watch server -e js,html server/app.js",
 		"seed": "node seed.js"
   },
+	"proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": [
       "react-app",

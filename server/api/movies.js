@@ -3,11 +3,12 @@ const { Movie, Personnel }=require("../db");
 
 // GET /api/movies
 router.get('/', async (req, res, next) => {
+	console.log('Between lines 5 and 6 in moives.js');
     try {
         const movies = await Movie.findAll({
             include: [ Personnel ]
         })
-        res.send(movies)
+        res.json(movies)
     }
     catch (error) {
         next(error)
@@ -20,7 +21,7 @@ router.get('/:id', async (req, res, next) => {
         const movie = await Movie.findByPk(req.params.id, {
           include: [ Personnel ]
         })
-        res.send(movie)
+        res.json(movie)
     }
     catch (error) {
         next(error)
@@ -31,7 +32,7 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
       const addMovie = await Movie.create(req.body);
-      res.send(addMovie)
+      res.json(addMovie)
   }
   catch (error) {
       next(error)

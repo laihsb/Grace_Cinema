@@ -4,7 +4,6 @@ const cors = require("cors");
 const app = express();
 module.exports = app;
 
-
 app.use(cors());
 
 // Body parsing middleware
@@ -31,6 +30,10 @@ app.use((req, res, next) => {
     }
 });
 
+//DOES NOT HELP API ROUTES WORK
+// app.use("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "/public/index.html"));
+// });
 
 // Error catching endware
 app.use((err, req, res, next) => {
