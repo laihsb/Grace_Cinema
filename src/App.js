@@ -10,7 +10,7 @@ import Cart from "./components/Cart";
 import Orders from "./components/Orders";
 import SideNav from "./components/SideNav";
 import LogIn from "./components/LogIn";
-import NoPage from "./components/NoPage"
+import NoPage from "./components/NoPage";
 
 import { Link, Route, Routes } from "react-router-dom";
 
