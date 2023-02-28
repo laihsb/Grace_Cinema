@@ -5,18 +5,17 @@ import SingleMovie from "./SingleMovie";
 import Personnel from "./Personnel";
 import SinglePerson from "./SinglePerson";
 import Admin from "./Admin";
-import UserProfile from "./UserProfile";
 import Users from "./Users";
 import Cart from "./Cart";
 import Orders from "./Orders";
 import SideNav from "./SideNav";
+import LogIn from "./LogIn";
 import NoPage from "./NoPage";
 
-const LogIn = () => {
-	return (
-		<h1>Welcome to the LogIn Component!</h1>
-	)
-}
+// Display all the information about the users
 
-export default LogIn
+const UsersProfile = () => {
+  return <h1>Welcome to the User Profile Component!</h1>;
+};
 
+export default UsersProfile;

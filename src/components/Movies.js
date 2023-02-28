@@ -1,6 +1,5 @@
 import React from "react";
 import Nav from "./Nav";
-import Movies from "./Movies";
 import SingleMovie from "./SingleMovie";
 import Personnel from "./Personnel";
 import SinglePerson from "./SinglePerson";
@@ -9,27 +8,14 @@ import UserProfile from "./UserProfile";
 import Users from "./Users";
 import Cart from "./Cart";
 import Orders from "./Orders";
+import SideNav from "./SideNav";
 import LogIn from "./LogIn";
 import NoPage from "./NoPage";
 
-// The sideNav bar
-
-const SideNav = () => {
-  return (
-    <div>
-			<h1>Welcome to the Side Nav Component!</h1>
-      <div>
-        <ul id="sidenav">
-          <li>
-            <a href="#">Orders</a>
-          </li>
-          <li>
-            <a href="#">Personal Info</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
+const Movies = () => {
+	return (
+		<h1>Welcome to the Movies Component!</h1>
+		);
 };
 
-export default SideNav;
+export default Movies;

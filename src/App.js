@@ -1,11 +1,12 @@
+import React from "react";
 import Nav from "./components/Nav";
-import Movies from "./components/Movies/Movies";
-import SingleMovie from "./components/Movies/SingleMovie";
-import Personnel from "./components/Personnel/Personnel";
-import SinglePerson from "./components/Personnel/SinglePerson";
-import Admin from "./components/Users/Admin";
-import UserProfile from "./components/Users/UserProfile";
-import Users from "./components/Users/Users";
+import Movies from "./components/Movies";
+import SingleMovie from "./components/SingleMovie";
+import Personnel from "./components/Personnel";
+import SinglePerson from "./components/SinglePerson";
+import Admin from "./components/Admin";
+import UserProfile from "./components/UserProfile";
+import Users from "./components/Users";
 import Cart from "./components/Cart";
 import Orders from "./components/Orders";
 import SideNav from "./components/SideNav";
@@ -18,22 +19,32 @@ function App() {
   return (
     <div className="App">
 			<Nav />
-			{/* <Movies /> */}
-			{/* <SingleMovie /> */}
-			{/* <Personnel /> */}
-			{/* <SinglePerson /> */}
-			{/* <Admin /> */}
-			{/* <UserProfile /> */}
-			{/* <Users /> */}
-			{/* <Cart /> */}
-			{/* <Orders /> */}
-			{/* <SideNav /> */}
-			{/* <LogIn /> */}
-			{/* <NoPage /> */}
 			<Link to='/movies'>All Movies</Link>
+			<Link to='/movies/id'>Single Movie</Link>
+			<Link to='/people'>All People</Link>
+			<Link to='/people/id'>Single Person</Link>
+			<Link to='/admin'>Admin</Link>
+			<Link to='/users'>All Users</Link>
+			<Link to='/user/id'>Single User</Link>
+			<Link to='/cart'>Your Cart</Link>
+			<Link to='/orders'>All Orders</Link>
+			<Link to='/sidenav'>Side Nav Components</Link>
+			<Link to='/login'>Login/Logout</Link>
+			<Link to='/nopage'>something to display</Link>
 
 			<Routes>
 				<Route path='/movies' element={<Movies />} />
+				<Route path='/movies/id' element={<SingleMovie />} />
+				<Route path='/people' element={<Personnel />} />
+				<Route path='/people/id' element={<SinglePerson />} />
+				<Route path='/admin' element={<Admin />} />
+				<Route path='/user/id' element={<UserProfile />} />
+				<Route path='/users' element={<Users />} />
+				<Route path='/cart' element={<Cart />} />
+				<Route path='/orders' element={<Orders />} />
+				<Route path='/sidenav' element={<SideNav />} />
+				<Route path='/login' element={<LogIn />} />
+				<Route path='/nopage' element={<NoPage />} />
 			</Routes>
 		</div>
 	)
