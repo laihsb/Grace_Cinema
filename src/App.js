@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "./components/Nav";
 import Movies from "./components/Movies";
 import SingleMovie from "./components/SingleMovie";
@@ -17,8 +17,16 @@ import AddProduct from './components/AddProduct';
 import EditProduct from './components/EditProduct';
 
 import { Link, Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMoviesAsync } from "./features/allMovies/allMoviesSlice";
 
 function App() {
+	const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMoviesAsync());
+		//dispatch(fetchCampusesAsync());
+  }, [dispatch]);
   return (
     <div className="App">
 			<Nav />
