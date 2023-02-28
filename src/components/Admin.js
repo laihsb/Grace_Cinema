@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import Movies from "./Movies";
 import SingleMovie from "./SingleMovie";
-import Personnel from "./Personnel";
+import Personnel from "./Xpersonnel";
 import SinglePerson from "./SinglePerson";
 import UserProfile from "./UserProfile";
 import Users from "./Users";
@@ -15,7 +15,13 @@ import NoPage from "./NoPage";
 // The Admin's profile who will have more control to the website than users
 
 const Admin = () => {
-  return <h1>Welcome to the Admin Component!</h1>;
+  return (
+	<div className="admin-container">
+		{/* <AdminBar /> */}
+		
+
+	</div>
+	);
 };
 
 export default Admin;

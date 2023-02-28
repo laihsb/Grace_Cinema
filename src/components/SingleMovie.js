@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "./Nav";
 import Movies from "./Movies";
-import Personnel from "./Personnel";
+import Personnel from "./Xpersonnel";
 import SinglePerson from "./SinglePerson";
 import Admin from "./Admin";
 import UserProfile from "./UserProfile";
@@ -12,11 +12,19 @@ import SideNav from "./SideNav";
 import LogIn from "./LogIn";
 import NoPage from "./NoPage";
 
-// The componenet inside the Movies which will show the movie details when clicked
+const movieDummy = {
+	title: 'The Hobbit',
+	genre: 'Fantasy',
+	year: 1977,
+	description: "A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.",
+	price: 19.99,
+	inventory: 10
+}
 
 const SingleMovie = () => {
+
   return (
-	<h1>Welcome to the Single Movies Component!</h1>
+		<div>Single Movie</div>
 	);
 };
 

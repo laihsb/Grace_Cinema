@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./components/Nav";
 import Movies from "./components/Movies";
 import SingleMovie from "./components/SingleMovie";
-import Personnel from "./components/Personnel";
+// import Personnel from "./components/Personnel";
 import SinglePerson from "./components/SinglePerson";
 import Admin from "./components/Admin";
 import UserProfile from "./components/UserProfile";
@@ -12,6 +12,9 @@ import Orders from "./components/Orders";
 import SideNav from "./components/SideNav";
 import LogIn from "./components/LogIn";
 import NoPage from "./components/NoPage";
+import UpdateInfo from './components/UpdateInfo';
+import AddProduct from './components/AddProduct';
+import EditProduct from './components/EditProduct';
 
 import { Link, Route, Routes } from "react-router-dom";
 
@@ -21,7 +24,6 @@ function App() {
 			<Nav />
 			<Link to='/movies'>All Movies</Link>
 			<Link to='/movies/id'>Single Movie</Link>
-			<Link to='/people'>All People</Link>
 			<Link to='/people/id'>Single Person</Link>
 			<Link to='/admin'>Admin</Link>
 			<Link to='/users'>All Users</Link>
@@ -30,12 +32,14 @@ function App() {
 			<Link to='/orders'>All Orders</Link>
 			<Link to='/sidenav'>Side Nav Components</Link>
 			<Link to='/login'>Login/Logout</Link>
-			<Link to='/nopage'>something to display</Link>
+			<Link to='/nopage'>No Page Component</Link>
+			<Link to='/update'>Update Form</Link>
+			<Link to='/add-product'>Add Product Form</Link>
+			<Link to='/edit-product'>Edit Product Form</Link>
 
 			<Routes>
 				<Route path='/movies' element={<Movies />} />
 				<Route path='/movies/id' element={<SingleMovie />} />
-				<Route path='/people' element={<Personnel />} />
 				<Route path='/people/id' element={<SinglePerson />} />
 				<Route path='/admin' element={<Admin />} />
 				<Route path='/user/id' element={<UserProfile />} />
@@ -45,6 +49,9 @@ function App() {
 				<Route path='/sidenav' element={<SideNav />} />
 				<Route path='/login' element={<LogIn />} />
 				<Route path='/nopage' element={<NoPage />} />
+				<Route path='/update' element={<UpdateInfo />} />
+				<Route path='/add-product' element={<AddProduct />} />
+				<Route path='/edit-product' element={<EditProduct />} />
 			</Routes>
 		</div>
 	)

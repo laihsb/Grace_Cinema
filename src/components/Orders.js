@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import Movies from "./Movies";
 import SingleMovie from "./SingleMovie";
-import Personnel from "./Personnel";
+import Personnel from "./Xpersonnel";
 import SinglePerson from "./SinglePerson";
 import Admin from "./Admin";
 import UserProfile from "./UserProfile";
