@@ -1,26 +1,13 @@
 import React from "react";
-
-// Header
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
     <div>
-      <div>
-        <ul id="nav">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">FAQ</a>
-          </li>
-          <li>
-            <a href="#">Login</a>
-          </li>
-        </ul>
-      </div>
+			<h1>Welcome to the Nav Component!</h1>
+      <Link to='/'>Grace Cinema</Link>
+			<span> </span>
+			<Link to='/login'>Log In/Sign Up</Link>
     </div>
   );
 };

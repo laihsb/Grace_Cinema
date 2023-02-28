@@ -4,7 +4,7 @@ import React from "react";
 // also we could update the orders
 
 const Cart = () => {
-  return <div> Some item in the cart</div>;
+  return <h1>Welcome to the Cart Component!</h1>;
 };
 
 export default Cart;

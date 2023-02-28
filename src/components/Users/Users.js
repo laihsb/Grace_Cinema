@@ -3,7 +3,7 @@ import React from "react";
 // THE USERS/CUSTOMERS
 
 const Users = () => {
-  return <div> Name of users</div>;
+  return <h1>Welcome to the Users Component!</h1>;
 };
 
 export default Users;

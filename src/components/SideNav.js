@@ -5,6 +5,7 @@ import React from "react";
 const SideNav = () => {
   return (
     <div>
+			<h1>Welcome to the Side Nav Component!</h1>
       <div>
         <ul id="sidenav">
           <li>
