@@ -37,9 +37,9 @@ const Movie = db.define('movie', {
 	},
 	imageUrl: {
 		type: Sequelize.STRING,
-		validate:{
-			isUrl: true
-		}
+		// validate:{git pulkl
+		// 	isUrl: true
+		// }
 	}
 });
 

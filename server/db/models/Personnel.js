@@ -16,9 +16,9 @@ const Personnel = db.define('personnel', {
 	},
 	imageUrl: {
 		type: Sequelize.STRING,
-		validate:{
-			isUrl: true
-		}
+		// validate:{
+		// 	isUrl: true
+		// }
 	},
 	details: {
 		type: Sequelize.TEXT,
