@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Nav from "./components/Nav";
 import Movies from "./components/Movies";
 import SingleMovie from "./components/SingleMovie";
-// import Personnel from "./components/Personnel";
 import SinglePerson from "./components/SinglePerson";
 import Admin from "./components/Admin";
 import UserProfile from "./components/UserProfile";
@@ -15,9 +14,9 @@ import NoPage from "./components/NoPage";
 import UpdateInfo from './components/UpdateInfo';
 import AddProduct from './components/AddProduct';
 import EditProduct from './components/EditProduct';
-import Personnel from './components/Xpersonnel'
+import Personnel from './components/Personnel'
 
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchMoviesAsync } from "./features/allMovies/allMoviesSlice";
 import { fetchPersonnelAsync } from "./features/allPersonnelSlice";
@@ -37,23 +36,9 @@ function App() {
   return (
     <div className="App">
 			<Nav />
-			<Link to='/movies'>All Movies</Link>
-			<Link to='/movies/id'>Single Movie</Link>
-			<Link to='/people/id'>Single Person</Link>
-			<Link to='/admin'>Admin</Link>
-			<Link to='/users'>All Users</Link>
-			<Link to='/user/id'>Single User</Link>
-			<Link to='/cart'>Your Cart</Link>
-			<Link to='/orders'>All Orders</Link>
-			<Link to='/sidenav'>Side Nav Components</Link>
-			<Link to='/login'>Login/Logout</Link>
-			<Link to='/nopage'>No Page Component</Link>
-			<Link to='/update'>Update Form</Link>
-			<Link to='/add-product'>Add Product Form</Link>
-			<Link to='/edit-product'>Edit Product Form</Link>
-			<Link to='/personnel'>Personnel info</Link>
 
 			<Routes>
+				<Route path='/' element={<Movies />} />
 				<Route path='/movies' element={<Movies />} />
 				<Route path='/movies/id' element={<SingleMovie />} />
 				<Route path='/people/id' element={<SinglePerson />} />

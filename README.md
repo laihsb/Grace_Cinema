@@ -2,4 +2,5 @@ Clone repo
 npm install
 createdb grace_cinema
 npm run seed
-npm run start:dev
+npm start in ONE terminal
+npm run server in a DIFFERENT terminal (SIMULTANEOUSLY)

@@ -15,16 +15,16 @@ const Movies = () => {
 		{
 			movies.map((movie)=>{
 				return(
-					<div className = 'card-column'>
+					<div className = 'card-container'>
 						<div className = 'card'>
-							<div className='card-image' key = {movie.id}>
-							<div className = 'card-content'>
+							<div  key = {movie.id}>
+
 									<Link to={`/movies/${movie.id}`}>
 										<img  src='https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg' alt=''/>
-										<h2 className = 'card-title'>{movie.title}</h2>
-										<p className = 'card-text'><small>{movie.price}</small></p>
+										<h2 >{movie.title}</h2>
+										<p ><small>{movie.price}</small></p>
 									</Link>
-								</div>
+
 							</div>
 						</div>
 					</div>

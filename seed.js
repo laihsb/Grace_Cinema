@@ -1248,6 +1248,12 @@ const personnel = [
   }
 ];
 
+const orders = [
+	{
+		
+	}
+]
+
 const seed = async () => {
   try {
     await db.sync({force: true});

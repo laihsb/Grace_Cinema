@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Nav from "./Nav";
 import Movies from "./Movies";
-import Personnel from "./Xpersonnel";
+import Personnel from "./Personnel";
 import SinglePerson from "./SinglePerson";
 import Admin from "./Admin";
 import UserProfile from "./UserProfile";
