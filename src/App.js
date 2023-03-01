@@ -15,6 +15,7 @@ import NoPage from "./components/NoPage";
 import UpdateInfo from './components/UpdateInfo';
 import AddProduct from './components/AddProduct';
 import EditProduct from './components/EditProduct';
+import Personnel from './components/Xpersonnel'
 
 import { Link, Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -44,6 +45,7 @@ function App() {
 			<Link to='/update'>Update Form</Link>
 			<Link to='/add-product'>Add Product Form</Link>
 			<Link to='/edit-product'>Edit Product Form</Link>
+			<Link to='/personnel'>Personnel info</Link>
 
 			<Routes>
 				<Route path='/movies' element={<Movies />} />
@@ -60,6 +62,7 @@ function App() {
 				<Route path='/update' element={<UpdateInfo />} />
 				<Route path='/add-product' element={<AddProduct />} />
 				<Route path='/edit-product' element={<EditProduct />} />
+				<Route path='/personnel' element={<Personnel/>} />
 			</Routes>
 		</div>
 	)

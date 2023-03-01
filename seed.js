@@ -1271,6 +1271,42 @@ await Promise.all(personnel.map(person => {
 }));
 console.log('After creating personnel...');
 
+//Craig, going off of: https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/
+const Blanchett = await (Personnel.findOne({
+	where: {
+		fName: 'Cate',
+		lName: 'Blanchett'
+	}
+}))
+const GOAT = await (Personnel.findOne({
+	where: {
+		fName: 'Elijah',
+		lName: 'Wood'
+	}
+}))
+
+console.log(Blanchett, GOAT)
+
+const FotR = await (Movie.findOne({
+	where: {
+		title: 'The Lord of the Rings: The Fellowship of the Ring',
+	}
+}))
+const tTT = await (Movie.findOne({
+	where: {
+		title: 'The Lord of the Rings: The Two Towers'
+	}
+}))
+const tRotK = await (Movie.findOne({
+	where: {
+		title: 'The Lord of the Rings: The Return of the King'
+	}
+}))
+
+await Blanchett.setMovies([FotR, tTT, tRotK]);
+await GOAT.setMovies([FotR, tTT, tRotK]);
+
+console.log(Blanchett, GOAT, tRotK, tTT, FotR)
 
     console.log('Seeding success!')
     db.close()

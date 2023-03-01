@@ -13,10 +13,29 @@ import LogIn from "./LogIn";
 import NoPage from "./NoPage";
 
 // HOLD THE INFORMATION ABOUT THE MOVIES POEPLE (EX: ACTORS, DIRECTORS)
+import { useSelector } from "react-redux";
+import {selectPersonnel} from '../features/allPersonnelSlice';
+
+
 
 const Personnel = () => {
+	
+	const persons = useSelector(selectPersonnel);
+	console.log(persons);
 	return (
-		<h1>Welcome to the Single Movies Component!</h1>
+		<div>
+		{
+			persons.map((person)=>{
+				return(
+					<div key = {person.fName}>
+						<h4>Name: {person.fName} {person.lName}</h4>
+						<h4> details: {person.details}</h4>
+						<img src = {person.imageUrl} alt=''/>
+					</div>
+				)
+			})
+		}
+	</div>
 		);
 };
 

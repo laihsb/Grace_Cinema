@@ -1,12 +1,11 @@
 const router = require('express').Router();
-const { Movie, Personnel }=require("../db");
+const { Movie, Personnel } = require("../db");
 
 // GET /api/movies
 router.get('/', async (req, res, next) => {
-	console.log('Between lines 5 and 6 in moives.js');
     try {
         const movies = await Movie.findAll({
-            include: [ Personnel ]
+            include: Personnel
         })
         res.json(movies)
     }

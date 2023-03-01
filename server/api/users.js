@@ -1,37 +1,37 @@
 const router = require('express').Router();
-const { Users, Orders }=require("../db");
+const { User} = require("../db");
 
-// GET /api/users <----- i dont know if we need this
+// GET /api/users
 router.get('/', async (req, res, next) => {
-  try {
-      const users = await Users.findAll({
-          include: [{ model: Orders, as: 'orders'}]
-      })
-      res.send(users)
-  }
-  catch (error) {
-      next(error)
-  }
-})
-
-// GET /api/users/:id
-router.get('/:id', async (req, res, next) => {
     try {
-        const user = await Users.findByPk({
-            include: [{ model: Orders, as: 'orders'}]
+        const users = await User.findAll({
+            // include: [ Order ]
         })
-        res.send(user)
+        res.json(users)
     }
     catch (error) {
         next(error)
     }
 })
 
-// POST /api/users/id
-router.post('/:id', async (req, res, next) => {
+// GET /api/users/:id
+router.get('/:id', async (req, res, next) => {
+    try {
+        const user = await User.findByPk(req.params.id, {
+        //   include: [ Order ]
+        })
+        res.json(user)
+    }
+    catch (error) {
+        next(error)
+    }
+})
+
+// POST /api/users
+router.post('/', async (req, res, next) => {
   try {
-      const addUser = await Users.create(req.body);
-      res.send(addUser)
+      const addUser = await User.create(req.body);
+      res.json(addUser)
   }
   catch (error) {
       next(error)
@@ -39,9 +39,9 @@ router.post('/:id', async (req, res, next) => {
 })
 
 // UPDATE /api/users/:id
-router.get('/:id', async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   try {
-      const updateUser = await Users.findByPk(req.params.id);
+      const updateUser = await User.findByPk(req.params.id);
       const updated = await updateUser.update(req.body)
       res.send(updated)
   }
@@ -54,7 +54,7 @@ router.get('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   try {
       const userId = Number(req.params.id)
-      const deleteUser = await Users.findByPk(id);
+      const deleteUser = await User.findByPk(id);
       await deleteUser.destroy();
       res.send(deleteUser);
   }

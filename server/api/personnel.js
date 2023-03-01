@@ -5,7 +5,7 @@ const { Personnel, Movie }=require("../db");
 router.get('/', async (req, res, next) => {
     try {
         const personnel = await Personnel.findAll({
-            include: [{ model: Movie, as: 'movie' }]
+            include: Movie
         })
         res.send(personnel)
     }
@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
 router.get('/id', async (req, res, next) => {
     try {
         const person = await Personnel.findByPk(req.params.id, {
-            include: [{ model: Movie, as: 'movie'}]
+            include: Movie
         })
         res.send(person)
     }

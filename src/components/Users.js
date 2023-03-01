@@ -12,48 +12,32 @@ import SideNav from "./SideNav";
 import LogIn from "./LogIn";
 import NoPage from "./NoPage";
 
-const usersDummy = [
-	{
-		email: 'user1@customer.mail',
-		password: 'password1',
-		fName: 'Samwise',
-		lName: 'Gamgee',
-		type: 'customer'
-	},
-	{
-		email: 'user2@customer.mail',
-		password: 'password2',
-		fName: 'Samuel',
-		lName: 'Glamgy',
-		type: 'customer'
-	},
-	{
-		email: 'user3@customer.mail',
-		password: 'password3',
-		fName: 'Fred',
-		lName: 'Bagson',
-		type: 'customer'
-	},
-	{
-		email: 'user4@customer.mail',
-		password: 'password4',
-		fName: 'Gerald',
-		lName: 'Rivers',
-		type: 'customer'
-	},
-	{
-		email: 'user5@customer.mail',
-		password: 'password5',
-		fName: 'Jennifer',
-		lName: 'Ventley',
-		type: 'customer'
-	},
-]
+import { useSelector } from "react-redux";
+import { selectUsers } from '../features/users';
 
 const Users = () => {
-	const [users, setUsers] = useState(usersDummy)
+	const users = useSelector(selectUsers)
 
-  return <h1>Welcome to the Users Component!</h1>;
+	console.log(users);
+
+  return ( 
+  <div>
+	<h1>Welcome to the Users Component!</h1>
+	{
+			users.map((user)=>{
+				return(
+					<div key = {user.id}>
+						<h4>First Name: {user.fName}</h4>
+						<h4>Last Name: {user.lName}</h4>
+						<h4>Email: {user.email}</h4>
+						<h4>Type: {user.type}</h4>
+					</div>
+				)
+			})
+		}
+  </div>
+
+  );
 };
 
 export default Users;
