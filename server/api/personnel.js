@@ -7,7 +7,7 @@ router.get('/', async (req, res, next) => {
         const personnel = await Personnel.findAll({
             include: Movie
         })
-        res.send(personnel)
+        res.json(personnel)
     }
     catch (error) {
         next(error)

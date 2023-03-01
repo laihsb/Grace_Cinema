@@ -12,10 +12,10 @@ export const fetchMoviesAsync = createAsyncThunk("movies", async () => {
   }
 });
 
-export const addMovieAsync = createAsyncThunk("addMovie", async (movie) => {
-    const { data } = await axios.post(`/api/movies`, movie);
-    return data
-});
+// export const addMovieAsync = createAsyncThunk("addMovie", async (movie) => {
+//     const { data } = await axios.post(`/api/movies`, movie);
+//     return data
+// });
 
 const moviesSlice = createSlice({
   name: "movies",
@@ -23,12 +23,11 @@ const moviesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchMoviesAsync.fulfilled, (state, action) => {
-      // Add user to the state array
       return action.payload;
     });
-    builder.addCase(addMovieAsync.fulfilled, (state, action) => {
-      state.push(action.payload);
-    });
+    // builder.addCase(addMovieAsync.fulfilled, (state, action) => {
+    //   state.push(action.payload);
+    // });
   },
 });
 

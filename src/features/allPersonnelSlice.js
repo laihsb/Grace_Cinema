@@ -3,39 +3,36 @@ import axios from "axios";
 
 const initialState = [];
 
-//thunks are your actions you call to your reducer
-
-export const fetchPersonnellAsync = createAsyncThunk("personnel", async () => {
-    try {
-        const { data } = await axios.get(`http://localhost:8080/api/personnel`);
-        return data;
-    } catch (err) {
-        console.log(err);
-    }
+export const fetchPersonnelAsync = createAsyncThunk("personnel", async () => {
+  try {
+    const { data } = await axios.get(`http://localhost:8080/api/personnel`);
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-export const addPersonnelASync = createAsyncThunk("addPersonnel", async (person) => {
-  const { data } = await axios.post(`/api/personnel`, person);
-  return data
-});
+// export const addMovieAsync = createAsyncThunk("addMovie", async (movie) => {
+//     const { data } = await axios.post(`/api/Personnel`, movie);
+//     return data
+// });
 
 const personnelSlice = createSlice({
-    name: "Personnel",
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(fetchPersonnellAsync.fulfilled, (state, action) => {
-            // Add user to the state array
-            return action.payload;
-        });
-        builder.addCase(addPersonnelASync.fulfilled, (state, action) => {
-          state.push(action.payload);
-        });
-    },
+  name: "personnel",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchPersonnelAsync.fulfilled, (state, action) => {
+      return action.payload;
+    });
+    // builder.addCase(addMovieAsync.fulfilled, (state, action) => {
+    //   state.push(action.payload);
+    // });
+  },
 });
 
 export const selectPersonnel = (state) => {
-    return state.Personnel;
+  return state.personnel;
 };
 
 export default personnelSlice.reducer;

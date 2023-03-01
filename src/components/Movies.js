@@ -1,39 +1,38 @@
-import React, { useState } from "react";
-import Nav from "./Nav";
-import SingleMovie from "./SingleMovie";
-import SinglePerson from "./SinglePerson";
-import Admin from "./Admin";
-import UserProfile from "./UserProfile";
-import Users from "./Users";
-import Cart from "./Cart";
-import Orders from "./Orders";
-import SideNav from "./SideNav";
-import LogIn from "./LogIn";
-import NoPage from "./NoPage";
+import React from "react";
+import { Link } from "react-router-dom"
+import './movies.css';
 
 import { useSelector } from "react-redux";
 import { selectMovies } from '../features/allMovies/allMoviesSlice';
 
 const Movies = () => {
-	const movies = useSelector(selectMovies)
+	const movies = useSelector(selectMovies)//include sort by year function here
 
 	console.log(movies);
 	return (
-		<div>
+		<div className="container">
+	
 		{
 			movies.map((movie)=>{
 				return(
-					<div key = {movie.id}>
-						<h4>Title: {movie.title}</h4>
-						<h4> Genre: {movie.genre}</h4>
-						<h4>Price {movie.price}</h4>
-						<h4>Year Released: {movie.year}</h4>
-						<h4>Inventory:{movie.inventory}</h4>
-						<h4>Description:{movie.description}</h4>
+					<div className = 'card-column'>
+						<div className = 'card'>
+							<div className='card-image' key = {movie.id}>
+							<div className = 'card-content'>
+									<Link to={`/movies/${movie.id}`}>
+										<img  src='https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg' alt=''/>
+										<h2 className = 'card-title'>{movie.title}</h2>
+										<p className = 'card-text'><small>{movie.price}</small></p>
+									</Link>
+								</div>
+							</div>
+						</div>
 					</div>
 				)
 			})
 		}
+		{/*SideNav Component */}
+
 	</div>
 		);
 };

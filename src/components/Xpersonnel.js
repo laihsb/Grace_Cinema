@@ -14,12 +14,9 @@ import NoPage from "./NoPage";
 
 // HOLD THE INFORMATION ABOUT THE MOVIES POEPLE (EX: ACTORS, DIRECTORS)
 import { useSelector } from "react-redux";
-import {selectPersonnel} from '../features/allPersonnelSlice';
-
-
+import { selectPersonnel } from '../features/allPersonnelSlice';
 
 const Personnel = () => {
-	
 	const persons = useSelector(selectPersonnel);
 	console.log(persons);
 	return (

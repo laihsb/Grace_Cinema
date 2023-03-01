@@ -18,15 +18,21 @@ import EditProduct from './components/EditProduct';
 import Personnel from './components/Xpersonnel'
 
 import { Link, Route, Routes } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchMoviesAsync } from "./features/allMovies/allMoviesSlice";
+import { fetchPersonnelAsync } from "./features/allPersonnelSlice";
+import { fetchUsersAsync } from "./features/users";
+import { fetchOrdersAsync } from "./features/orders";
+
 
 function App() {
 	const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchMoviesAsync());
-		//dispatch(fetchCampusesAsync());
+    dispatch(fetchPersonnelAsync());
+    dispatch(fetchUsersAsync());
+    dispatch(fetchOrdersAsync());
   }, [dispatch]);
   return (
     <div className="App">

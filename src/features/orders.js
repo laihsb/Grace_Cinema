@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = [];
 
-export const fetchOrderAsync = createAsyncThunk("orders", async () => {
+export const fetchOrdersAsync = createAsyncThunk("orders", async () => {
   try {
     const { data } = await axios.get(`http://localhost:8080/api/orders`);
     return data;
@@ -12,23 +12,22 @@ export const fetchOrderAsync = createAsyncThunk("orders", async () => {
   }
 });
 
-export const addOrderAsync = createAsyncThunk("addOrder", async (order) => {
-    const { data } = await axios.post(`/api/movies`, order);
-    return data
-});
+// export const addOrderAsync = createAsyncThunk("addOrder", async (order) => {
+//     const { data } = await axios.post(`/api/movies`, order);
+//     return data
+// });
 
 const ordersSlice = createSlice({
   name: "orders",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchOrderAsync.fulfilled, (state, action) => {
-      // Add user to the state array
+    builder.addCase(fetchOrdersAsync.fulfilled, (state, action) => {
       return action.payload;
     });
-    builder.addCase(addOrderAsync.fulfilled, (state, action) => {
-      state.push(action.payload);
-    });
+    // builder.addCase(addOrderAsync.fulfilled, (state, action) => {
+    //   state.push(action.payload);
+    // });
   },
 });
 
