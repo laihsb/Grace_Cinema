@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const db = require('../_db');
-const Order = require('./Order');
 
 const User = db.define('user', {
     fName: {

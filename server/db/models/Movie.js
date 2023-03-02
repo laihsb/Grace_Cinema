@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const db = require('../_db');
-const Personnel = require('./Personnel');
 
 const Movie = db.define('movie', {
     title: {
@@ -38,9 +37,6 @@ const Movie = db.define('movie', {
 	},
 	imageUrl: {
 		type: Sequelize.STRING,
-		// validate:{git pulkl
-		// 	isUrl: true
-		// }
 	}
 });
 
