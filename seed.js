@@ -1,4 +1,4 @@
-const { db, User, Movie, Personnel } = require('./server/db/index')
+const { db, User, Movie, Personnel, Movie_Personnel } = require('./server/db/index')
 
 const users = [
 	{
@@ -1278,41 +1278,86 @@ await Promise.all(personnel.map(person => {
 console.log('After creating personnel...');
 
 //Craig, going off of: https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/
-const Blanchett = await (Personnel.findOne({
-	where: {
-		fName: 'Cate',
-		lName: 'Blanchett'
-	}
-}))
-const GOAT = await (Personnel.findOne({
-	where: {
-		fName: 'Elijah',
-		lName: 'Wood'
-	}
-}))
+// const Blanchett = await (Personnel.findOne({
+// 	where: {
+// 		fName: 'Cate',
+// 		lName: 'Blanchett'
+// 	}
+// }))
+// const GOAT = await (Personnel.findOne({
+// 	where: {
+// 		fName: 'Elijah',
+// 		lName: 'Wood'
+// 	}
+// }))
 
-console.log(Blanchett, GOAT)
+// console.log(Blanchett, GOAT)
 
-const FotR = await (Movie.findOne({
-	where: {
-		title: 'The Lord of the Rings: The Fellowship of the Ring',
-	}
-}))
-const tTT = await (Movie.findOne({
-	where: {
-		title: 'The Lord of the Rings: The Two Towers'
-	}
-}))
-const tRotK = await (Movie.findOne({
-	where: {
-		title: 'The Lord of the Rings: The Return of the King'
-	}
-}))
+// const FotR = await (Movie.findOne({
+// 	where: {
+// 		title: 'The Lord of the Rings: The Fellowship of the Ring',
+// 	}
+// }))
+// const tTT = await (Movie.findOne({
+// 	where: {
+// 		title: 'The Lord of the Rings: The Two Towers'
+// 	}
+// }))
+// const tRotK = await (Movie.findOne({
+// 	where: {
+// 		title: 'The Lord of the Rings: The Return of the King'
+// 	}
+// }))
 
-await Blanchett.setMovies([FotR, tTT, tRotK]);
-await GOAT.setMovies([FotR, tTT, tRotK]);
+// await Blanchett.setMovies([FotR, tTT, tRotK]);
+// await GOAT.setMovies([FotR, tTT, tRotK]);
 
-console.log(Blanchett, GOAT, tRotK, tTT, FotR)
+// console.log(Blanchett, GOAT, tRotK, tTT, FotR)
+
+await Movie_Personnel.bulkCreate([
+	{ MovieId: 1, PersonnelId: 1 },   
+	{ MovieId: 3, PersonnelId: 1 },   
+	{ MovieId: 6, PersonnelId: 1 },
+	{ MovieId: 1, PersonnelId: 2 },   
+	{ MovieId: 3, PersonnelId: 2 },   
+	{ MovieId: 6, PersonnelId: 2 },
+	{ MovieId: 1, PersonnelId: 3 },   
+	{ MovieId: 3, PersonnelId: 3 },   
+	{ MovieId: 6, PersonnelId: 3 },
+	{ MovieId: 1, PersonnelId: 4 },   
+	{ MovieId: 3, PersonnelId: 4 },   
+	{ MovieId: 6, PersonnelId: 4 },
+	{ MovieId: 1, PersonnelId: 5 },   
+	{ MovieId: 3, PersonnelId: 5 },   
+	{ MovieId: 6, PersonnelId: 5 },
+	{ MovieId: 1, PersonnelId: 6 },   
+	{ MovieId: 3, PersonnelId: 6 },   
+	{ MovieId: 6, PersonnelId: 6 },
+	{ MovieId: 1, PersonnelId: 7 },   
+	{ MovieId: 3, PersonnelId: 7 },   
+	{ MovieId: 6, PersonnelId: 7 },
+	{ MovieId: 1, PersonnelId: 8 },   
+	{ MovieId: 3, PersonnelId: 8 },   
+	{ MovieId: 6, PersonnelId: 8 },
+	{ MovieId: 1, PersonnelId: 9 },   
+	{ MovieId: 3, PersonnelId: 9 },   
+	{ MovieId: 6, PersonnelId: 9 },
+	{ MovieId: 1, PersonnelId: 10 },   
+	{ MovieId: 3, PersonnelId: 10 },   
+	{ MovieId: 6, PersonnelId: 10 },
+	{ MovieId: 1, PersonnelId: 11 },   
+	{ MovieId: 3, PersonnelId: 11 },   
+	{ MovieId: 6, PersonnelId: 11 },
+	{ MovieId: 1, PersonnelId: 12 },   
+	{ MovieId: 3, PersonnelId: 12 },   
+	{ MovieId: 6, PersonnelId: 12 },
+	{ MovieId: 1, PersonnelId: 13 },   
+	{ MovieId: 3, PersonnelId: 13 },   
+	{ MovieId: 6, PersonnelId: 13 },
+	{ MovieId: 1, PersonnelId: 15 },   
+	{ MovieId: 3, PersonnelId: 15 },   
+	{ MovieId: 6, PersonnelId: 15 },
+]);
 
     console.log('Seeding success!')
     db.close()
