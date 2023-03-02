@@ -1,40 +1,58 @@
-import React from "react";
-import { Link } from "react-router-dom"
-import './movies.css';
+import React, { useState } from "react";
+
+import { Link } from "react-router-dom";
+import "./movies.css";
 
 import { useSelector } from "react-redux";
-import { selectMovies } from '../features/allMovies/allMoviesSlice';
+import { selectMovies } from "../features/allMovies/allMoviesSlice";
+import Pagination from "./Pagination";
 
 const Movies = () => {
-	const movies = useSelector(selectMovies)//include sort by year function here
+  const movies = useSelector(selectMovies); //include sort by year function here
 
-	console.log(movies);
-	return (
-		<div className="container">
-	
-		{
-			movies.map((movie)=>{
-				return(
-					<div className = 'card-container'>
-						<div className = 'card'>
-							<div  key = {movie.id}>
+  // console.log(movies.length);
 
-									<Link to={`/movies/${movie.id}`}>
-										<img  src='https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg' alt=''/>
-										<h2 >{movie.title}</h2>
-										<p ><small>{movie.price}</small></p>
-									</Link>
+  const [currentPage, setCurrentPage] = useState(1);
 
-							</div>
-						</div>
-					</div>
-				)
-			})
-		}
-		{/*SideNav Component */}
+  // num of items you want to display in the page
+  const [postPerPage, setPostPerPage] = useState(6);
 
-	</div>
-		);
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+  const currentPost = movies.slice(firstPostIndex, lastPostIndex);
+  console.log(postPerPage);
+
+  return (
+    <div>
+      <section className="container">
+        {currentPost.map((movie) => {
+          return (
+            <div className="card">
+              <div className="card-image">
+                <div key={movie.id}>
+                  <Link to={`/movies/${movie.id}`}>
+                    <img src={movie.imageUrl} alt="" />
+                    <h2>{movie.title}</h2>
+                    <h2>
+                      <small>{movie.price}</small>
+                    </h2>
+                    <p>{movie.description}</p>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+        {/*SideNav Component */}
+      </section>
+      <Pagination
+        totalPosts={movies.length}
+        postPerPage={postPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
+    </div>
+  );
 };
 
 export default Movies;
