@@ -15,7 +15,7 @@ const Movies = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // num of items you want to display in the page
-  const [postPerPage, setPostPerPage] = useState(6);
+  const [postPerPage, setPostPerPage] = useState(9);
 
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
@@ -31,12 +31,12 @@ const Movies = () => {
               <div className="card-image">
                 <div key={movie.id}>
                   <Link to={`/movies/${movie.id}`}>
-                    <img src={movie.imageUrl} alt="" />
-                    <h2>{movie.title}</h2>
-                    <h2>
-                      <small>{movie.price}</small>
+                    <img className="movieImage" src={movie.imageUrl} alt="" />
+                    <h2 className="movieTitle">{movie.title}</h2>
+                    <h2 className="moviePrice">
+                      <small>${movie.price}</small>
                     </h2>
-                    <p>{movie.description}</p>
+                    {/* <p id="movieDesc">{movie.description}</p> */}
                   </Link>
                 </div>
               </div>
