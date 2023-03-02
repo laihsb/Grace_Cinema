@@ -1,4 +1,4 @@
-const { db, User, Movie, Personnel } = require('./server/db/index')
+const { db, User, Movie, Personnel, Order } = require('./server/db/index')
 
 const users = [
 	{
@@ -1250,71 +1250,121 @@ const personnel = [
 
 const orders = [
 	{
-		
-	}
+		status: 'Bought'
+	},
+	{
+		status: 'Bought'
+	},
+	{
+		status: 'Bought'
+	},
+	{
+		status: 'In Cart'
+	},
+	{
+		status: 'Bought'
+	},
+	{
+		status: 'In Cart'
+	},
 ]
 
 const seed = async () => {
   try {
     await db.sync({force: true});
-
-    console.log('Before creating users...');
-await Promise.all(users.map(user => {
-  return User.create(user);
-}));
-console.log('After creating users...');
-
-console.log('Before creating movies...');
-await Promise.all(movies.map(movie => {
-	console.log(`Creating movie: ${movie.title} (${movie.releaseYear}) with image URL ${movie.imageUrl}`);
-	return Movie.create(movie);
-  }));
-console.log('After creating movies...');
-
-console.log('Before creating personnel...');
-await Promise.all(personnel.map(person => {
-  return Personnel.create(person);
-}));
-console.log('After creating personnel...');
-
-//Craig, going off of: https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/
-const Blanchett = await (Personnel.findOne({
-	where: {
-		fName: 'Cate',
-		lName: 'Blanchett'
-	}
-}))
-const GOAT = await (Personnel.findOne({
-	where: {
-		fName: 'Elijah',
-		lName: 'Wood'
-	}
-}))
-
-console.log(Blanchett, GOAT)
-
-const FotR = await (Movie.findOne({
-	where: {
-		title: 'The Lord of the Rings: The Fellowship of the Ring',
-	}
-}))
-const tTT = await (Movie.findOne({
-	where: {
-		title: 'The Lord of the Rings: The Two Towers'
-	}
-}))
-const tRotK = await (Movie.findOne({
-	where: {
-		title: 'The Lord of the Rings: The Return of the King'
-	}
-}))
-
-await Blanchett.setMovies([FotR, tTT, tRotK]);
-await GOAT.setMovies([FotR, tTT, tRotK]);
-
-console.log(Blanchett, GOAT, tRotK, tTT, FotR)
-
-    console.log('Seeding success!')
+		await Promise.all(users.map(user => {
+  		return User.create(user);
+		}));
+		await Promise.all(movies.map(movie => {
+			return Movie.create(movie);
+		}));
+		await Promise.all(personnel.map(person => {
+			return Personnel.create(person);
+		}));
+		await Promise.all(orders.map(order => {
+			return Order.create(order);
+		}));
+		//Craig, going off of: https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/
+		const Blanchett = await (Personnel.findOne({
+			where: {
+				fName: 'Cate',
+				lName: 'Blanchett'
+			}
+		}))
+		const GOAT = await (Personnel.findOne({
+			where: {
+				fName: 'Elijah',
+				lName: 'Wood'
+			}
+		}))
+		const FotR = await (Movie.findOne({
+			where: {
+				title: 'The Lord of the Rings: The Fellowship of the Ring',
+			}
+		}))
+		const tTT = await (Movie.findOne({
+			where: {
+				title: 'The Lord of the Rings: The Two Towers'
+			}
+		}))
+		const tRotK = await (Movie.findOne({
+			where: {
+				title: 'The Lord of the Rings: The Return of the King'
+			}
+		}))
+		await Blanchett.setMovies([FotR, tTT, tRotK]);
+		await GOAT.setMovies([FotR, tTT, tRotK]);
+		const user1 = await (User.findOne({
+			where: {
+				email: 'user1@customer.mail'
+			}
+		}));
+		const user2 = await (User.findOne({
+			where: {
+				email: 'user2@customer.mail'
+			}
+		}));
+		const user3 = await (User.findOne({
+			where: {
+				email: 'user3@customer.mail'
+			}
+		}));
+		const order1 = await (Order.findOne({
+			where: {
+				id: 1,
+			}
+		}));
+		const order2 = await (Order.findOne({
+			where: {
+				id: 2,
+			}
+		}));
+		const order3 = await (Order.findOne({
+			where: {
+				id: 3,
+			}
+		}));
+		const order4 = await (Order.findOne({
+			where: {
+				id: 4,
+			}
+		}));
+		const order6 = await (Order.findOne({
+			where: {
+				id: 6,
+			}
+		}));
+		const order5 = await (Order.findOne({
+			where: {
+				id: 5,
+			}
+		}));
+		// await GOAT.setMovies([FotR, tTT, tRotK]);
+		await user2.addOrders([order1, order2, order3, order4]);
+		await user1.addOrders([order6]);
+		await user3.addOrders([order5]);
+		//Log happy message if seed is successful:
+		console.log('🌰➤Seeding success!➤🌳')
     db.close()
   }
   catch (err) {

@@ -7,8 +7,8 @@ const Personnel = require('./models/Personnel');
 Personnel.belongsToMany(Movie, {through: 'Movie_Personnel'});
 Movie.belongsToMany(Personnel, {through: 'Movie_Personnel'});
 
-User.belongsToMany(Order, {through: 'User_Order'});
-Order.belongsToMany(User, {through: 'User_Order'});
+User.hasMany(Order);
+Order.belongsTo(User);
 
 Order.belongsToMany(Movie, {through: 'Order_Movie'});
 Movie.belongsToMany(Order, {through: 'Order_Movie'});
