@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import RightSideNav from "./RightSideNav";
 
 import { Link, useNavigate } from "react-router-dom";
 import "./movies.css";
@@ -63,6 +64,7 @@ const Movies = () => {
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
+      <RightSideNav />
     </div>
   );
 };
