@@ -9,11 +9,13 @@ const Documentary = () => {
 
 const documentary = useSelector(selectMovies)
   return (
-		<div>No Documentary Movies yet
+    <section className="container">
+      <h1 className="genre">No Documentary Movies yet</h1>
       {documentary.map((filter) => {
         if(filter.genre === 'Documentary'){
           return(
-            <div>
+            <div className="card">
+            <div className="card-image">
                <Link to={`/movies/${filter.id}`}>
                     <img className="movieImage" src={filter.imageUrl} alt="" />
                     <h2 className="movieTitle">{filter.title}</h2>
@@ -21,12 +23,13 @@ const documentary = useSelector(selectMovies)
                       <small>${filter.price}</small>
                     </h2>
                     </Link>
+                    </div>
             </div>
           )
         }
       })}
 <RightSideNav/>
-		</div>
+		</section>
 	);
 };
 

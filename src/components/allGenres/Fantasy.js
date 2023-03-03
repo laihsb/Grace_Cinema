@@ -10,11 +10,13 @@ const fantasy = useSelector(selectMovies)
 console.log(fantasy)
 
   return (
-		<div>Fantasy
+    <section className="container">
+     <h1 className="genre"> Fantasy</h1>
       {fantasy.map((filter) => {
         if(filter.genre === 'Fantasy'){
           return(
-            <div>
+            <div className="card">
+            <div className="card-image">
                <Link to={`/movies/${filter.id}`}>
                     <img className="movieImage" src={filter.imageUrl} alt="" />
                     <h2 className="movieTitle">{filter.title}</h2>
@@ -22,12 +24,14 @@ console.log(fantasy)
                       <small>${filter.price}</small>
                     </h2>
                     </Link>
+                    </div>
             </div>
           )
         }
       })}
 <RightSideNav/>
-		</div>
+
+		</section>
 	);
 };
 

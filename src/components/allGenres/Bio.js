@@ -9,11 +9,13 @@ const Bio = () => {
 
 const bio = useSelector(selectMovies)
   return (
-		<div>No Biography/Historical Movies yet
+    <section className="container">
+    <h1 className="genre">No Biography/Historical Movies yet</h1>
       {bio.map((filter) => {
         if(filter.genre === 'Biography/Historical'){
           return(
-            <div>
+            <div className="card">
+                <div className="card-image">
                <Link to={`/movies/${filter.id}`}>
                     <img className="movieImage" src={filter.imageUrl} alt="" />
                     <h2 className="movieTitle">{filter.title}</h2>
@@ -21,12 +23,13 @@ const bio = useSelector(selectMovies)
                       <small>${filter.price}</small>
                     </h2>
                     </Link>
+                    </div>
             </div>
           )
         }
       })}
 <RightSideNav/>
-		</div>
+		</section>
 	);
 };
 

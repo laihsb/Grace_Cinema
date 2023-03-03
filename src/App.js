@@ -68,7 +68,7 @@ function App() {
 				<Route path='/update' element={<UpdateInfo />} />
 				<Route path='/add-product' element={<AddProduct />} />
 				<Route path='/edit-product' element={<EditProduct />} />
-				<Route path='/action' element={<Action/>} />
+				<Route path='/actionadventure' element={<Action/>} />
 				<Route path='/Bio' element={<Bio/>} />
 				<Route path='/comedy' element={<Comedy/>} />
 				<Route path='/documentary' element={<Documentary/>} />

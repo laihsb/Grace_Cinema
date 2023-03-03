@@ -8,11 +8,13 @@ const Drama = () => {
 
 const drama = useSelector(selectMovies)
   return (
-		<div>No Drama Movies yet
+    <section className="container">
+      <h1 className="genre">No Drama Movies yet</h1>
       {drama.map((filter) => {
         if(filter.genre === 'Drama'){
           return(
-            <div>
+            <div className="card">
+                <div className="card-image">
                <Link to={`/movies/${filter.id}`}>
                     <img className="movieImage" src={filter.imageUrl} alt="" />
                     <h2 className="movieTitle">{filter.title}</h2>
@@ -20,12 +22,13 @@ const drama = useSelector(selectMovies)
                       <small>${filter.price}</small>
                     </h2>
                     </Link>
+                    </div>
             </div>
           )
         }
       })}
 <RightSideNav/>
-		</div>
+		</section>
 	);
 };
 
