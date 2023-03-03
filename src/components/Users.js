@@ -8,7 +8,7 @@ import Admin from "./Admin";
 import UserProfile from "./UserProfile";
 import Cart from "./Cart";
 import Orders from "./Orders";
-import SideNav from "./SideNav";
+import SideNav from "./LeftSideNav";
 import LogIn from "./LogIn";
 import NoPage from "./NoPage";
 
@@ -20,7 +20,7 @@ const Users = () => {
 
 	console.log(users);
 
-  return ( 
+  return (
   <div>
 	<h1>Welcome to the Users Component!</h1>
 	{

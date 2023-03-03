@@ -1,75 +1,52 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectMovies } from "../features/allMovies/allMoviesSlice";
+import Fantasy from "./allGenres/Fantasy";
+import { Link } from "react-router-dom";
 
 // The sideNav bar
 
 const RightSideNav = () => {
-    const movies = useSelector(selectMovies);
-
-  const [filtered, setfilter] = useState(movies);
-
-  // const fantasyMovie = movies.filter(fantasy => {
-  //   return fantasy.genre.includes('Fantasy')
-  // })
-
-//   useEffect(() => {
-// setfilter(fantasyMovie)
-//   }, [])
-
-
-
-
+  // const [filtered, setfilter] = useState([]);
 
   // console.log(fantasyMovie)
   return (
     <div className="container-sorted-movies">
       <h1>Sort Movies By!</h1>
       <div>
-        {/* <div
-          onClick={() =>
-            setfilter(filtered)(console.log('clicked'))}>
-          Fantasy
-        </div> */}
-        <div onClick={() =>
-            setfilter(
-              movies.filter((action) => {
-                // console.log('sorted')
-                if (action.genre.includes("Action/Adventure")) {
-                  return <div>{console.log(action.title)}</div>;
-                }
-              })
-            )
-          }>Action/Adventure</div>
-        {/* <div>Biography/Historical</div>
-
-        <div>Comedy</div>
-
-        <div>Documentary</div>
-        <div>Drama</div>
-        <div>Family/Animated</div>
-        <div>Horror/Thriller</div>
-        <div>Romance</div>
-        <div>Science Fiction</div>
-        <div>Western</div> */}
+        <Link to="/fantasy">Fantasy</Link>
       </div>
-      {/* { moviesSorted.map((sorted) => {
+      <div>
+        <Link to="/actionadventure">Action/Adventure</Link>
+      </div>
+      <div>
+        <Link to="/biographyhistorical">Biography/Historical</Link>
+      </div>
+      <div>
+        <Link to="/comedy">Comedy</Link>
+      </div>
+      <div>
+        <Link to="/documentary">Documentary</Link>
+      </div>
+      <div>
+        <Link to="/drama">Drama</Link>
+      </div>
+      <div>
+        <Link to="/familyanimated">Family/Animated</Link>
+      </div>
+      <div>
+        <Link to="/horrorthriller">Horror/Thriller</Link>
+      </div>
+      <div>
+        <Link to="/romance">Romance</Link>
+      </div>
+      <div>
+        <Link to="/sciencefiction">Science Fiction</Link>
+      </div>
 
-      <div className="sorted-card">
-            <ul id="sidenav">
-
-              <li>
-                <a href="#">Orders</a>
-              </li>
-              <li>
-                <a href="#">Personal Info</a>
-              </li>
-            </ul>
-          </div>
-
-      })
-
-        } */}
+      <div>
+        <Link to="/western">Western</Link>
+      </div>
     </div>
   );
 };
