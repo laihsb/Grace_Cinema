@@ -1,16 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom"
-import { useSelector } from "react-redux";
+import { Link, useNavigate} from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux";
 import { selectMovies } from "../../features/allMovies/allMoviesSlice";
 import RightSideNav from "../RightSideNav";
+import { addToCart } from "../../features/cartSlice";
 
 
 const Action = () => {
 
 const action = useSelector(selectMovies)
+const dispatch = useDispatch()
+const navigate = useNavigate();
+
+const handleAddToCart = (filter) => {
+  dispatch(addToCart(filter));
+  navigate("/cart");
+};
   return (
     <section className="container">
-    <h1 className="genre">Action/Adventure</h1> 
+    <h1 className="genre">Action/Adventure</h1>
       {action.map((filter) => {
         if(filter.genre === 'Action/Adventure'){
           return(
@@ -23,6 +31,9 @@ const action = useSelector(selectMovies)
                       <small>${filter.price}</small>
                     </h2>
                     </Link>
+                    <button onClick={() => handleAddToCart(filter)}>
+                      Add To Cart
+                    </button>
                     </div>
             </div>
           )
