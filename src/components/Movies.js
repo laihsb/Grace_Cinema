@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./movies.css";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectMovies } from "../features/allMovies/allMoviesSlice";
 import Pagination from "./Pagination";
+import { addToCart } from "../features/cartSlice";
 
 const Movies = () => {
   const movies = useSelector(selectMovies); //include sort by year function here
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // console.log(movies.length);
 
@@ -20,7 +23,11 @@ const Movies = () => {
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
   const currentPost = movies.slice(firstPostIndex, lastPostIndex);
-  console.log(postPerPage);
+
+  const handleAddToCart = (movie) => {
+    dispatch(addToCart(movie));
+    navigate("/cart");
+  };
 
   return (
     <div>
@@ -38,6 +45,11 @@ const Movies = () => {
                     </h2>
                     {/* <p id="movieDesc">{movie.description}</p> */}
                   </Link>
+                  <div>
+                    <button onClick={() => handleAddToCart(movie)}>
+                      Add To Cart
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
