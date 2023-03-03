@@ -116,7 +116,6 @@ const users = [
 ];
 
 const movies = [
-
 	{
 		title: 'The Hobbit',
 		genre: 'Fantasy',

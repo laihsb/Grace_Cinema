@@ -12,7 +12,7 @@ import SideNav from "./components/SideNav";
 import LogIn from "./components/LogIn";
 import NoPage from "./components/NoPage";
 import UpdateInfo from './components/UpdateInfo';
-import AddProduct from './components/AddProduct';
+import AddMovie from './components/AddMovie';
 import EditProduct from './components/EditProduct';
 import Personnel from './components/Personnel'
 import LeftSideNav from "./components/LeftSideNav";
@@ -55,6 +55,7 @@ function App() {
 				<Route path='/' element={<Movies />} />
 				<Route path='/movies' element={<Movies />} />
 				<Route path='/movies/:id' element={<SingleMovie />} />
+				<Route path='/movies/add' element={<AddMovie />} />
 				<Route path='/people/:id' element={<SinglePerson />} />
 				<Route path='/admin' element={<Admin />} />
 				<Route path='/users/:id' element={<UserProfile />} />
@@ -66,7 +67,6 @@ function App() {
 				<Route path='/login' element={<LogIn />} />
 				<Route path='/nopage' element={<NoPage />} />
 				<Route path='/update' element={<UpdateInfo />} />
-				<Route path='/add-product' element={<AddProduct />} />
 				<Route path='/edit-product' element={<EditProduct />} />
 				<Route path='/actionadventure' element={<Action/>} />
 				<Route path='/Bio' element={<Bio/>} />

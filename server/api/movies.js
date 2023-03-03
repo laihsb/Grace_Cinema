@@ -53,10 +53,10 @@ router.put('/:id', async (req, res, next) => {
 // DELETE /api/movies/:id
 router.delete('/:id', async (req, res, next) => {
   try {
-      const movieId = Number(req.params.id)
-      const deleteMovie = await Movie.findByPk(id);
-      await deleteMovie.destroy();
-      res.send(deleteMovie);
+		const id = Number(req.params.id)
+		const movieToDelete = await Movie.findByPk(id);
+		await movieToDelete.destroy();
+		res.sendStatus(202)
   }
   catch (error) {
       next(error)

@@ -8,13 +8,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectMovies } from "../features/allMovies/allMoviesSlice";
 import Pagination from "./Pagination";
 import { addToCart } from "../features/cartSlice";
+import { deleteMovieAsync } from '../features/allMovies/allMoviesSlice';
+
 
 const Movies = () => {
   const movies = useSelector(selectMovies); //include sort by year function here
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // console.log(movies.length);
+  //Eventually, only Admins will see the button to DELETE
+	const deleteMovieById = (id) => {
+		dispatch (deleteMovieAsync(id));
+	}
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -49,6 +54,9 @@ const Movies = () => {
                   <div>
                     <button onClick={() => handleAddToCart(movie)}>
                       Add To Cart
+                    </button>
+										<button className='delete-button' onClick={() => deleteMovieById(movie.id)}>
+                      DELETE
                     </button>
                   </div>
                 </div>

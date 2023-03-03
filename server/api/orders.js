@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Orders, Movie }=require("../db");
+const { Order, Movie }=require("../db");
 
 // GET /api/orders <----- i dont know if we need this
 router.get('/', async (req, res, next) => {
   try {
-      const orders = await Orders.findAll({
+      const orders = await Order.findAll({
           include: [{ model: Movie, as: 'movie'}]
       })
       res.send(orders)
@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
 // GET /api/orders/:id
 router.get('/:id', async (req, res, next) => {
     try {
-        const order = await Orders.findByPk({
+        const order = await Order.findByPk({
             include: [{ model: Movie, as: 'movie'}]
         })
         res.send(order)
@@ -30,7 +30,7 @@ router.get('/:id', async (req, res, next) => {
 // POST /api/orders/id
 router.post('/:id', async (req, res, next) => {
   try {
-      const addOrder = await Orders.create(req.body);
+      const addOrder = await Order.create(req.body);
       res.send(addOrder)
   }
   catch (error) {
@@ -41,7 +41,7 @@ router.post('/:id', async (req, res, next) => {
 // UPDATE /api/orders/:id
 router.get('/:id', async (req, res, next) => {
   try {
-      const updateOrder = await Orders.findByPk(req.params.id);
+      const updateOrder = await Order.findByPk(req.params.id);
       const updated = await updateOrder.update(req.body)
       res.send(updated)
   }
@@ -53,8 +53,8 @@ router.get('/:id', async (req, res, next) => {
 // DELETE /api/orders/:id
 router.delete('/:id', async (req, res, next) => {
   try {
-      const orderId = Number(req.params.id)
-      const deleteOrder = await Orders.findByPk(id);
+      const id = Number(req.params.id)
+      const deleteOrder = await Order.findByPk(id);
       await deleteOrder.destroy();
       res.send(deleteOrder);
   }

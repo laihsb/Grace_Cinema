@@ -12,10 +12,15 @@ export const fetchMoviesAsync = createAsyncThunk("movies", async () => {
   }
 });
 
-// export const addMovieAsync = createAsyncThunk("addMovie", async (movie) => {
-//     const { data } = await axios.post(`/api/movies`, movie);
-//     return data
-// });
+export const addMovieAsync = createAsyncThunk("addMovie", async (movie) => {
+    const { data } = await axios.post(`/api/movies`, movie);
+    return data
+});
+
+export const deleteMovieAsync = createAsyncThunk("deleteMovie", async(id) => {
+	await axios.delete(`http://localhost:8080/api/movies/${id}`);
+	return id
+});
 
 const moviesSlice = createSlice({
   name: "movies",
@@ -25,9 +30,12 @@ const moviesSlice = createSlice({
     builder.addCase(fetchMoviesAsync.fulfilled, (state, action) => {
       return action.payload;
     });
-    // builder.addCase(addMovieAsync.fulfilled, (state, action) => {
-    //   state.push(action.payload);
-    // });
+    builder.addCase(addMovieAsync.fulfilled, (state, action) => {
+      state.push(action.payload);
+    });
+		builder.addCase (deleteMovieAsync.fulfilled, (state, action) => {
+			return state.filter((movie) => movie.id !== action.payload)
+		});
   },
 });
 
