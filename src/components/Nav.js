@@ -1,16 +1,4 @@
 import React from "react";
-import Movies from "./Movies";
-import SingleMovie from "./SingleMovie";
-import Personnel from "./Personnel";
-import SinglePerson from "./SinglePerson";
-import Admin from "./Admin";
-import UserProfile from "./UserProfile";
-import Users from "./Users";
-import Cart from "./Cart";
-import Orders from "./Orders";
-import SideNav from "./SideNav";
-import LogIn from "./LogIn";
-import NoPage from "./NoPage";
 import { Link } from "react-router-dom";
 import "./nav.css";
 import { useSelector } from "react-redux";
@@ -21,7 +9,7 @@ const Nav = () => {
   return (
     <nav className="nav-bar">
       <Link to="/login">Log In/Sign Up</Link>
-      <Link to="/">Grace Cinema</Link>
+      <Link to="/"><h1>Grace Cinema</h1></Link>
       <Link to="/cart">
         <div className="nav-bag">
           <svg
