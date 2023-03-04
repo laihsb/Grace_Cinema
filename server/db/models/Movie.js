@@ -7,9 +7,9 @@ const Movie = db.define('movie', {
         allowNull: false,
     },
     genre: {
-			//⬇️DON'T UPDATE THE INPUT STRING ON ENUM WITHOUT ALSO CHANGING THE `allowedGenres` ARRAY ON ./src/components/AddMovie.js❗️
+			//⬇️DON'T UPDATE THE INPUT STRING ON ENUM WITHOUT ALSO CHANGING THE `allowedGenres` ARRAY ON ./src/components/AddMovie.js &AND& ./src/components/EditMovie.js❗️
         type: Sequelize.ENUM('Action/Adventure', 'Biography/Historical', 'Comedy', 'Documentary', 'Drama', 'Family/Animated', 'Fantasy', 'Horror/Thriller', 'Romance', 'Science Fiction', 'Western'),
-			//⬆️DON'T UPDATE THE INPUT STRING ON ENUM WITHOUT ALSO CHANGING THE `allowedGenres` ARRAY ON ./src/components/AddMovie.js❗️	
+			//⬆️DON'T UPDATE THE INPUT STRING ON ENUM WITHOUT ALSO CHANGING THE `allowedGenres` ARRAY ON ./src/components/AddMovie.js &AND& ./src/components/EditMovie.js❗️	
         allowNull: false,
     },
     year: {

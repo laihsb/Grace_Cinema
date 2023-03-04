@@ -8,13 +8,11 @@ import UserProfile from "./components/UserProfile";
 import Users from "./components/Users";
 import Cart from "./components/Cart";
 import Orders from "./components/Orders";
-import SideNav from "./components/SideNav";
 import LogIn from "./components/LogIn";
 import NoPage from "./components/NoPage";
 import UpdateInfo from './components/UpdateInfo';
 import AddMovie from './components/AddMovie';
-import EditProduct from './components/EditProduct';
-import Personnel from './components/Personnel'
+import EditMovie from './components/EditMovie';
 import LeftSideNav from "./components/LeftSideNav";
 import RightSideNav from "./components/RightSideNav"
 import Action from "./components/allGenres/Action";
@@ -28,7 +26,6 @@ import Horror from "./components/allGenres/Horror";
 import Romance from "./components/allGenres/Romance";
 import Science from "./components/allGenres/Science";
 import Western from "./components/allGenres/Western";
-
 
 import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -55,6 +52,7 @@ function App() {
 				<Route path='/' element={<Movies />} />
 				<Route path='/movies' element={<Movies />} />
 				<Route path='/movies/:id' element={<SingleMovie />} />
+				<Route path='/movies/:id/edit' element={<EditMovie />} />
 				<Route path='/movies/add' element={<AddMovie />} />
 				<Route path='/people/:id' element={<SinglePerson />} />
 				<Route path='/admin' element={<Admin />} />
@@ -67,7 +65,6 @@ function App() {
 				<Route path='/login' element={<LogIn />} />
 				<Route path='/nopage' element={<NoPage />} />
 				<Route path='/update' element={<UpdateInfo />} />
-				<Route path='/edit-product' element={<EditProduct />} />
 				<Route path='/actionadventure' element={<Action/>} />
 				<Route path='/Bio' element={<Bio/>} />
 				<Route path='/comedy' element={<Comedy/>} />

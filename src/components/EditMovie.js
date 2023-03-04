@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addMovieAsync } from '../features/allMovies/allMoviesSlice'
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { editMovieAsync } from '../features/allMovies/allMoviesSlice';
+import { fetchSingleMovieAsync, selectSingleMovie } from '../features/singleMovieSlice';
 
-const AddMovie = () => {
-		const dispatch = useDispatch();
-		//⬇️DON'T UPDATE THE `allowedGenres` ARRAY WITHOUT ALSO CHANING THE INPUT STRING ON ENUM ON ./server/db/models/Movie.js &AND& THE `allowedGenres` ARRAY IN ./src/components/EditMovie.js❗️
+
+const EditMovie = ({ id }) => {
+  	const dispatch = useDispatch();
+		const navigate = useNavigate();
+		const movie = useSelector(selectSingleMovie)
+
+		// useEffect(() => {
+		// 	dispatch(fetchSingleMovieAsync(id))
+		// }, [dispatch])
+
+		//⬇️DON'T UPDATE THE `allowedGenres` ARRAY WITHOUT ALSO CHANING THE INPUT STRING ON ENUM ON ./server/db/models/Movie.js &AND& THE `allowedGenres` ARRAY IN ./src/components/AddMovie.js❗️
 		const allowedGenres = ['Action/Adventure', 'Biography/Historical', 'Comedy', 'Documentary', 'Drama', 'Family/Animated', 'Fantasy', 'Horror/Thriller', 'Romance', 'Science Fiction', 'Western']
-		//⬆️DON'T UPDATE THE `allowedGenres` ARRAY WITHOUT ALSO CHANING THE INPUT STRING ON ENUM ON ./server/db/models/Movie.js &AND& THE `allowedGenres` ARRAY IN ./src/components/EditMovie.js❗️
+		//⬆️DON'T UPDATE THE `allowedGenres` ARRAY WITHOUT ALSO CHANING THE INPUT STRING ON ENUM ON ./server/db/models/Movie.js &AND& THE `allowedGenres` ARRAY IN ./src/components/AddMovie.js❗️
 
 		//set local state variables for each part of the form
 		const [title, setTitle] = useState('');
@@ -43,23 +53,28 @@ const AddMovie = () => {
 			}
 
 			//...create a new object from input fields (stored from the form as state variables)
-			const newMovie = { title, genre, year, description, price, inventory, imageUrl }
-			dispatch(addMovieAsync(newMovie))
+			const updatedMovie = { id, title, genre, year, description, price, inventory, imageUrl }
+			dispatch(editMovieAsync(updatedMovie))
 			//...and reset the form
-			// setFirstName('');
-			// setLastName('');
-			// setEmail('');
-			// setGPA('');
-			// setImageUrl('');
+			setTitle('');
+			setGenre('');
+			setYear('');
+			setDescription('');
+			setPrice('');
+			setInventory('');
+			setImageUrl('');
 		}
 
   return(
     <form 
-		  className='add-form' 
+		  className='edit-form' 
 			onSubmit={onSubmit}
 		>
 			<div className='form-control'>
-				<label>Title</label>
+				<label>
+						<span style={{fontWeight: 'bold'}}>Current Movie Name:</span> 
+						<small>{movie.name}</small>
+				</label>
 				<input 
 				  type='text' 
 					placeholder='**REQUIRED**' 
@@ -68,7 +83,10 @@ const AddMovie = () => {
 			  />
 			</div>
 			<div className='form-control'>
-				<label>Genre</label>
+				<label>
+						<span style={{fontWeight: 'bold'}}>Current Movie Genre:</span> 
+						<small>{movie.genre}</small>
+				</label>
 				{/* //THIS NEEDS TO BE A DROP-DOWN SELECTION MENU❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️ */}
 				<input 
 				  type='text' 
@@ -78,7 +96,10 @@ const AddMovie = () => {
 				/>
 			</div>
 			<div className='form-control'>
-				<label>Year</label>
+				<label>
+						<span style={{fontWeight: 'bold'}}>Current Movie Year:</span> 
+						<small>{movie.year}</small>
+				</label>
 				<input 
 				  type='text' 
 					placeholder='**REQUIRED**' 
@@ -87,16 +108,22 @@ const AddMovie = () => {
 				/>
 			</div>
 			<div className='form-control'>
-				<label>Description</label>
+				<label>
+						<span style={{fontWeight: 'bold'}}>Current Movie Description:</span> 
+						<small>{movie.description}</small>
+				</label>
 				<input 
 				type='text' 
-				placeholder='**REQUIRED**' 
+				placeholder='(optional)' 
 				value={description} 
 				onChange={(e)=> setDescription(e.target.value)} 
 			/>
 			</div>
 			<div className='form-control'>
-				<label>Price</label>
+				<label>
+						<span style={{fontWeight: 'bold'}}>Current Movie Price:</span> 
+						<small>{movie.price}</small>
+				</label>
 				<input 
 				  type='text' 
 					placeholder='**REQUIRED**' 
@@ -105,7 +132,10 @@ const AddMovie = () => {
 				/>
 			</div>
 			<div className='form-control'>
-				<label>Inventory</label>
+				<label>
+						<span style={{fontWeight: 'bold'}}>Current Movie Inventory:</span> 
+						<small>{movie.inventory}</small>
+				</label>
 				<input 
 				type='text' 
 				placeholder='(optional)' 
@@ -114,10 +144,13 @@ const AddMovie = () => {
 			/>
 			</div>
 			<div className='form-control'>
-				<label>Poster Image URL</label>
+				<label>
+						<span style={{fontWeight: 'bold'}}>Current Movie Image URL:</span> 
+						<small>{movie.imageUrl}</small>
+				</label>
 				<input 
 				  type='text' 
-					placeholder='**REQUIRED**' 
+					placeholder='(optional)' 
 					value={imageUrl} 
 					onChange={(e)=> setImageUrl(e.target.value)} 
 				/>
@@ -131,4 +164,4 @@ const AddMovie = () => {
   )
 }
 
-export default AddMovie;
+export default EditMovie;
