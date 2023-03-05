@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require("../db");
 require("dotenv").config();
+const jwt = require("jsonwebtoken");
 
 const requireToken = async (req, res) => {
     try{

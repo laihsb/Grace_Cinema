@@ -8,6 +8,6 @@ const config = {
  }
 
 
-const db = new Sequelize(process.env.DATABASE_URL ||'postgres://localhost:5432/grace_cinema', config);
+const db = new Sequelize(process.env.JWT ||'postgres://localhost:5432/grace_cinema', config);
 
 module.exports = db;
