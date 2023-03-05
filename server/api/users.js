@@ -1,5 +1,33 @@
 const router = require('express').Router();
-const { User} = require("../db");
+const { User } = require("../db");
+require("dotenv").config();
+
+const requireToken = async (req, res) => {
+    try{
+        const token = req.headers.authorization;
+        const user = await User.byToken(token);
+        req.user = user;
+    } catch(error) {
+        next(error)
+    }
+}
+
+
+router.post('/auth', async (req, res, next) => {
+    try{res.json({ token: await User.authenticate(req.body) });
+
+    } catch(error) {
+        next(error)
+    }
+})
+
+router.get('/auth', requireToken, async (req, res, next) => {
+    try{
+res.json(req.user)
+    } catch(error) {
+        next(error)
+    }
+})
 
 // GET /api/users
 router.get('/', async (req, res, next) => {

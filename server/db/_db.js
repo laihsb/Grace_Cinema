@@ -1,6 +1,13 @@
 const Sequelize = require('sequelize');
+require("dotenv").config();
+const config = {
+  logging: false,
+}
+ if(process.env.LOGGING){
+  delete config.logging;
+ }
 
-//remember to change the name of your db to what you want it to be!
-const db = new Sequelize(process.env.DATABASE_URL ||'postgres://localhost:5432/grace_cinema');
+
+const db = new Sequelize(process.env.DATABASE_URL ||'postgres://localhost:5432/grace_cinema', config);
 
 module.exports = db;

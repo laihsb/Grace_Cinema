@@ -30,7 +30,7 @@ app.use((req, res, next) => {
     }
 });
 
-//DOES NOT HELP API ROUTES WORK
+//DOES NOT HELP API ROUTES WORK <---- need it for AUTH so I uncommented ---- LAI
 // app.use("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "..", "/public/index.html"));
 // });

@@ -18,7 +18,7 @@ import { selectUsers } from '../features/users';
 const Users = () => {
 	const users = useSelector(selectUsers)
 
-	console.log(users);
+	// console.log(users);
 
   return (
   <div>

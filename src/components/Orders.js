@@ -24,17 +24,17 @@ const Orders = () => {
       		orders.map((order)=>{
             return(
               <div key = {order.id}>
-                <h4>Quantities: {order.quantities}</h4>
-                <h4> Total: {order.total}</h4>
+                {/* <h4>Quantities: {order.quantities}</h4>
+                <h4> Total: {order.total}</h4> */}
                 <h4>Status: {order.status}</h4>
               </div>
             )
           })
     }
-    
+
   </div>
   )
-  
+
 };
 
 export default Orders;
