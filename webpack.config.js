@@ -1,6 +1,6 @@
 const toastify = require('react-toastify')
 module.exports = {
-  mode: "production",
+  mode: "development",
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
@@ -10,6 +10,9 @@ module.exports = {
   output: {
     path: __dirname + '/public',
     filename: 'bundle.js',
+  },
+  devServer: {
+    compress: true
   },
   context: __dirname,
   devtool: 'source-map',
