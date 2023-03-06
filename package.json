@@ -16,9 +16,7 @@
     "sequelize": "^6.29.0"
   },
   "scripts": {
-    "start": "node seed.js && node server/app.js",
-    "start:dev": "npm run build:dev && npm run start-server",
-    "build": "webpack",
+    "start": "npm run seed && npm run build-watch & npm run start-server",
     "build-watch": "webpack -w",
     "start-server": "nodemon --watch server -e js,html server/app.js",
     "seed": "node seed.js"
