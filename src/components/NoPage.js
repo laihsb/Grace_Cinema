@@ -14,7 +14,7 @@ import LogIn from "./LogIn";
 
 const noPage = () => {
 	return (
-		<h1>Welcome to the noPage Component!</h1>
+		<h1>Error 404, how did you even get here?!</h1>
 	)
 }
 
