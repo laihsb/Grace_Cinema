@@ -50,14 +50,14 @@ const Movies = () => {
                       <small>${movie.price}</small>
                     </h2>
                   </Link>
-                  <span>
+                  <div>
                     <button onClick={() => handleAddToCart(movie)}>
                       Add To Cart
                     </button>
 										<button className='delete-button' onClick={() => deleteMovieById(movie.id)}>
                       DELETE
                     </button>
-                    </span>
+                    </div>
                 </div>
               </div>
             </div>
