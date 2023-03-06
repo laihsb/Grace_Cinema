@@ -10,7 +10,7 @@ body {
 .card {
   background: rgb(155, 149, 149);
   width: 250px;
-  height: 355px;
+  height: auto;
   margin: 10px;
   border-radius: 15px;
 }
@@ -45,6 +45,13 @@ a {
   margin-left: 3%;
 }
 .moviePrice {
-  margin-left: 33%;
-  margin-right: 33%;
+  text-align: center;
+  /* margin-left: 33%;
+  margin-right: 33%; */
+}
+button{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
 }

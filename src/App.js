@@ -66,7 +66,7 @@ function App() {
 				<Route path='/nopage' element={<NoPage />} />
 				<Route path='/update' element={<UpdateInfo />} />
 				<Route path='/actionadventure' element={<Action/>} />
-				<Route path='/Bio' element={<Bio/>} />
+				<Route path='/biographyhistorical' element={<Bio/>} />
 				<Route path='/comedy' element={<Comedy/>} />
 				<Route path='/documentary' element={<Documentary/>} />
 				<Route path='/drama' element={<Drama/>} />
@@ -74,7 +74,7 @@ function App() {
 				<Route path='/fantasy' element={<Fantasy/>} />
 				<Route path='/horror' element={<Horror/>} />
 				<Route path='/romance' element={<Romance/>} />
-				<Route path='/science' element={<Science/>} />
+				<Route path='/sciencefiction' element={<Science/>} />
 				<Route path='/western' element={<Western/>} />
 			</Routes>
 		</div>

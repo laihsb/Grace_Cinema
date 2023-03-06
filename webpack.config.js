@@ -1,6 +1,5 @@
 const toastify = require('react-toastify')
 module.exports = {
-  mode: "development",
   performance: {
     hints: false,
     maxEntrypointSize: 512000,

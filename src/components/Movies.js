@@ -49,22 +49,20 @@ const Movies = () => {
                     <h2 className="moviePrice">
                       <small>${movie.price}</small>
                     </h2>
-                    {/* <p id="movieDesc">{movie.description}</p> */}
                   </Link>
-                  <div>
+                  <span>
                     <button onClick={() => handleAddToCart(movie)}>
                       Add To Cart
                     </button>
 										<button className='delete-button' onClick={() => deleteMovieById(movie.id)}>
                       DELETE
                     </button>
-                  </div>
+                    </span>
                 </div>
               </div>
             </div>
           );
         })}
-        {/*SideNav Component */}
       </section>
       <Pagination
         totalPosts={movies.length}
