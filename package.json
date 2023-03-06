@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "node seed.js && node server/app.js",
-    "start:dev": "npm run start-server & npm run build",
+    "start:dev": "npm run build:dev && npm run start-server",
     "build": "webpack",
     "build-watch": "webpack -w",
     "start-server": "nodemon --watch server -e js,html server/app.js",
