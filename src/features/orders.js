@@ -5,7 +5,7 @@ const initialState = [];
 
 export const fetchOrdersAsync = createAsyncThunk("orders", async () => {
   try {
-    const { data } = await axios.get(`http://localhost:8080/api/orders`);
+    const { data } = await axios.get('http://localhost:8080/api/orders');
     return data;
   } catch (err) {
     console.log(err);

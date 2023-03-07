@@ -3,21 +3,26 @@ import usersSlice from "../features/users";
 import allMoviesSlice from "../features/allMovies/allMoviesSlice";
 import ordersSlice from "../features/orders";
 import allPersonnelSlice from "../features/allPersonnelSlice";
-import specificUserSlice from "../features/specificUserSlice";
+// import specificUserSlice from "../features/specificUserSlice";
 import singleMovieSlice from "../features/singleMovieSlice";
 import cartSlice from "../features/cartSlice";
+import authSlice from "../features/authSlice";
+// import logger from 'redux-logger';
+
 
 
 const store = configureStore({
   reducer: {
     users: usersSlice,
-    user: specificUserSlice,
+    // user: specificUserSlice,
 		movies: allMoviesSlice,
     singleMovie: singleMovieSlice,
     orders: ordersSlice,
     personnel: allPersonnelSlice,
     cart: cartSlice,
+    auth: authSlice
   },
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 // First dispatch when the application loads
 // store.dispatch(getTotals());

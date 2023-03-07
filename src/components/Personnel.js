@@ -9,7 +9,7 @@ import Users from "./Users";
 import Cart from "./Cart";
 import Orders from "./Orders";
 import SideNav from "./SideNav";
-import LogIn from "./LogIn";
+import LogIn from "./AuthLogin";
 import NoPage from "./NoPage";
 
 // HOLD THE INFORMATION ABOUT THE MOVIES POEPLE (EX: ACTORS, DIRECTORS)
